@@ -1,12 +1,14 @@
 function insertionSort(vetor){
+    let i, j, atual;
     for(let i = 1; i < vetor.length; i++){
-      let j = i;
-      while(j > 0 && vetor[j] < vetor[j-1]){
-        let aux = vetor[j];
-        vetor[j] = vetor[j-1];
-        vetor[j-1] = aux;
+      atual = vetor[i];
+      j = i - 1;
+      while(j >= 0 && vetor[j] > atual){
+        vetor[j + 1] = vetor[j];
         j--;
       }
+      vetor[j + 1] = atual;
+      
     }
   }
   

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de Potência com Recursividade</title>
+</head>
+<body>
+    <h1>Potência normal</h1>
+    <button onclick="potencia(2, 0)">Executar Potência Normal</button>
+
+    <h1>Potência Recursiva</h1>
+    <button onclick="imprimir()">Executar Potência Recursiva</button>
+
+    <script>
+        function potencia(n, p){
+            let resultado = 1;
+            if(p === 0){
+                alert(`O resultado é 1`);
+            }else{
+                for( var i = 1; i <= p; i++){
+                    resultado = resultado * n;
+                }
+                alert(`O resultado de ${n} elevado a ${p} potência é: ${resultado}`);
+            }
+        }    
+        
+        function potenciaRecursiva(n, p){
+            if(p == 0){
+                return 1;
+            } else{
+                return n * potenciaRecursiva( n, p - 1);
+            }
+        }
+
+        function imprimir(){
+           alert("O resultado é: " + potenciaRecursiva(2, 6));
+        }
+        
+    </script>
+</body>
+</html>

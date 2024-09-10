@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula de fatorial com recursividade</title>
+</head>
+
+<body>
+    <h1>Fatorial Interativo</h1>
+
+    <button onclick="fatorialInterativo(10)">Executar Fatorial Interativo</button>
+
+    <h1>Fatorial Recursivo</h1>
+
+    <button onclick="imprimir()">Executar Fatorial Recursivo</button>
+
+    <script>
+        function fatorialInterativo(f) {
+            var resultado = 1;
+            if (f == 0) {
+                alert(`O resultado de 0! é: 1`);
+            } else {
+                for (var i = 1; i <= f; i++) {
+                    resultado = resultado * i;
+                }
+                alert(`O resultado de ${f}! é: ${resultado}`);
+            }
+        }
+
+        function fatorialRecursivo(f){
+            if(f == 0){
+                return 1;
+            } else{
+                return f * fatorialRecursivo( f - 1);
+            }
+        }
+
+        function imprimir(){
+           
+           alert("O resultado é: "+ fatorialRecursivo(5));
+
+        }
+    </script>
+</body>
+
+</html>

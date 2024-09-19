@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Sort</title>
+</head>
+<body>
+    <h1>Quick Sort</h1>
+    <button onclick="imprimir()">Executar</button>
+
+    <script>
+        function quickSort(vetor){
+            if(vetor.length <= 1){
+                return vetor;
+            }else{
+                var pivotIndex = Math.floor(vetor.length / 2);
+                var pivot = vetor[pivotIndex];
+                var esq = [];
+                var dir = [];
+                for(var i = 0; i < vetor.length; i++){
+                    if(i === pivotIndex){
+                        continue
+                    }
+                    if(vetor[i] < pivot){
+                        esq.push(vetor[i]);
+                    }else{
+                        dir.push(vetor[i]);
+                    }
+                }
+            }
+            //Chamada Recursiva
+            return[... quickSort(esq), pivot, ...quickSort(dir)];
+        }
+
+        function imprimir(){
+            alert(quickSort([6, 7, 90, 2, 780, 6, 1000, 102, 33, 54, 0]));
+        }
+    </script>
+</body>
+</html>

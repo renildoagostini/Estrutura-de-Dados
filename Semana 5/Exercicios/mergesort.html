@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge Sort</title>
+</head>
+<body>
+    <h1>MERGE SORT</h1>
+
+    <button onclick="imprimir()">Executar</button>
+    <script>
+        //MERGESORT (SIGNIFICA MESCLAR)
+        //DUAS FUNÇÕES PARA RESOLVER O PROBLEMA
+        //PRIMEIRA: ORDENAR E MESCLAR OS SUBVETORES
+        //SEGUNDA: SUBDVIVIDIR O VETOR
+        //PUSH: COLOCA NA ULTIMA POSIÇÃO
+        //SHIFT: EXTRAI O ELEMENTO SOLICITADO E RETORNA O RESTANTE DO VETOR
+
+        function merge(esq, dir){
+            var ordenado = [];
+            while(esq.length >= 1 && dir.length >= 1){
+            
+                //inserir ordenado na variável ordenado
+                /*if(esq[0] < dir[0]){
+                    ordenado.push(esq.shift());
+                }else{
+                    ordenado.push(dir.shift());
+                }*/
+
+                esq[0] < dir[0] ? ordenado.push(esq.shift()) : ordenado.push(dir.shift());
+            }
+            return [...ordenado, ...esq, ...dir];
+        }
+
+        function mergeSort(vetor){
+            //condição de parada
+            if(vetor.length <= 1){
+                return vetor
+            }
+
+            
+
+            var meio = Math.floor(vetor.length / 2);
+            //chamada recursiva à esquerda
+            var esq = mergeSort(vetor.slice(0, meio));
+            //chamada recursiva à direita
+            var dir = mergeSort(vetor.slice(meio));
+
+            return merge(esq, dir);
+        }
+
+        function imprimir(){
+            alert(mergeSort([6, 7, 90, 2, 780, 6, 1000, 102, 33, 54, 0]));
+        }
+
+
+    </script>
+</body>
+</html>

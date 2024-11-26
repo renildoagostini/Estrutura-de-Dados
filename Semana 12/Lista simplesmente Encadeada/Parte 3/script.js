@@ -77,4 +77,37 @@ class ListaEncadeada{
         }
         return false;
     }
+
+    indexOf(){
+        let atual = this.cabeca;
+        let indice = 0;
+
+        while(atual !== null){
+            if(atual.elemento === elemento){
+                return indice;
+            }
+            indice++;
+            atual = atual.proximo 
+        }
+        return -1;
+    }
+
+    sizeOf(){
+        return this.tamanho;
+    }
+
+    isEmpty(){
+        return this.tamanho === 0;
+    }
+
+    toString(){
+        let atual = this.cabeca;
+        let resultado = "";
+
+        while (atual !== null){
+            resultado += atual.elemento + ' - ';
+            atual = atual.proximo
+        }
+        return resultado;
+    }
 }
